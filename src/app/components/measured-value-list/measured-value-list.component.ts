@@ -18,11 +18,13 @@ export class MeasuredValueListComponent implements OnInit {
   }
 
   measuredValuesList() {
+
     this.measuredValueService.getMeasuredValuesList().subscribe(
       data => {
         this.measuredValues = data;
       }
     )
+
   }
 
 }

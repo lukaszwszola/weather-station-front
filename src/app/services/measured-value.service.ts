@@ -10,12 +10,13 @@ import { MeasuredValue } from '../common/measured-value';
 })
 export class MeasuredValueService {
 
-  private baseUrl = 'http://localhost:8080/value/last100';
+  private baseUrl = 'http://localhost:8080/value/last500';
 
   constructor(private httpClient: HttpClient) { }
 
   getMeasuredValuesList(): Observable<MeasuredValue[]> {
     return this.httpClient.get<MeasuredValue[]>(this.baseUrl);
+
 
   }
 }

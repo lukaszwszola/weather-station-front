@@ -1,4 +1,6 @@
-<p *ngFor="let tempValues of measuredValues">
-     value: {{ tempValues.value }}, ID: {{ tempValues.measuredValueId }}
+<p *ngFor="let tempValues of measuredValues" >
+     Wartość pomiaru: {{ tempValues.value }}, Sensor: {{ tempValues.sensor.name }}, Data: {{ tempValues.measuredTime | date:'short' }}
 </p>
+
+
 

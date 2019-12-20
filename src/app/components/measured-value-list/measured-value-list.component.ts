@@ -22,6 +22,7 @@ export class MeasuredValueListComponent implements OnInit {
     this.measuredValueService.getMeasuredValuesList().subscribe(
       data => {
         this.measuredValues = data;
+        //console.log(data);
       }
     )
 

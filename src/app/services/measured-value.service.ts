@@ -16,9 +16,13 @@ export class MeasuredValueService {
 
   getMeasuredValuesList(): Observable<MeasuredValue[]> {
     return this.httpClient.get<MeasuredValue[]>(this.baseUrl);
-
-
   }
+
+  getMeasuredValuesForChart() : Observable<any> {
+    return this.httpClient.get("http://localhost:8080/value/last500")
+    .pipe(result => result);
+  }
+
 }
 
 interface GetResponse {

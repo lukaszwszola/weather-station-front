@@ -34,16 +34,13 @@ export class ChartComponent implements OnInit {
 
         let weatherDates = []
         mTime.forEach((res) => {
-  
-          
-          weatherDates.push(new Date(res).toLocaleString())
-          
+          weatherDates.push(new Date(res).toLocaleString());
         })
 
 
         //console.log(values)
-        console.log(mTime)
-        console.log(weatherDates)
+        //console.log(mTime)
+        //console.log(weatherDates)
 
         this.chart = new Chart('canvas', {
 
@@ -53,7 +50,7 @@ export class ChartComponent implements OnInit {
             datasets: [
               {
                 data: values,
-                borderColor: '#3cba9f',
+                borderColor: '#3d5afe',
                 fill: false
               },
             ]
@@ -64,7 +61,7 @@ export class ChartComponent implements OnInit {
             },
             scales: {
               xAxes: [{
-                display: true
+                display: false
               }],
               yAxes: [{
                 display: true

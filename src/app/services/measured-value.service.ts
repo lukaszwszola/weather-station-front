@@ -10,7 +10,7 @@ import { MeasuredValue } from '../common/measured-value';
 })
 export class MeasuredValueService {
 
-  private baseUrl = 'http://localhost:8080/value/last500';
+  private baseUrl = 'http://localhost:8080/value/last100';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class MeasuredValueService {
   }
 
   getMeasuredValuesForChart() : Observable<any> {
-    return this.httpClient.get("http://localhost:8080/value/last500")
+    return this.httpClient.get("http://localhost:8080/value/last100")
     .pipe(result => result);
   }
 

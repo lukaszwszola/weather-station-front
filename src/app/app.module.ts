@@ -7,12 +7,14 @@ import { MeasuredValueListComponent } from './components/measured-value-list/mea
 import { MeasuredValueService } from './services/measured-value.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartComponent } from './components/chart/chart.component';
+import { LastValueComponent } from './components/last-value/last-value.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MeasuredValueListComponent,
-    ChartComponent
+    ChartComponent,
+    LastValueComponent
   ],
   imports: [
     BrowserModule,

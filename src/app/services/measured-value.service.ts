@@ -23,6 +23,11 @@ export class MeasuredValueService {
     .pipe(result => result);
   }
 
+  getLastMeasuredValues() : Observable<any> {
+    return this.httpClient.get("http://localhost:8080/value/last")
+    .pipe(result => result);
+  }
+
 }
 
 interface GetResponse {

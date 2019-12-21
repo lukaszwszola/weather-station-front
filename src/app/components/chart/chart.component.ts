@@ -20,7 +20,7 @@ export class ChartComponent implements OnInit {
     //console.log(this._measuredValueService.getMeasuredValuesForChart())
     this._measuredValueService.getMeasuredValuesForChart()
       .subscribe(res => {
-        console.log(res)
+        //console.log(res)
 
         function getFields(input, field) {
           var output = [];

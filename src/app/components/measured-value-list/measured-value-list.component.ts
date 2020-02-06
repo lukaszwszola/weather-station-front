@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MeasuredValue } from 'src/app/common/measured-value';
+import { MeasuredValue, Sensors } from 'src/app/common/measured-value';
 import { MeasuredValueService } from 'src/app/services/measured-value.service';
 
 @Component({
@@ -14,12 +14,13 @@ export class MeasuredValueListComponent implements OnInit {
   constructor(private measuredValueService: MeasuredValueService) { }
 
   ngOnInit() {
-    this.measuredValuesList();
+    let sensorId = Sensors.temperature.toString();
+    this.measuredValuesList(sensorId);
   }
 
-  measuredValuesList() {
-
-    this.measuredValueService.getMeasuredValuesList().subscribe(
+  measuredValuesList(senorId: String) {
+    
+    this.measuredValueService.getMeasuredValuesList(senorId).subscribe(
       data => {
         this.measuredValues = data;
         //console.log(data);

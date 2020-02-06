@@ -8,18 +8,26 @@ import { MeasuredValueService } from './services/measured-value.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartComponent } from './components/chart/chart.component';
 import { LastValueComponent } from './components/last-value/last-value.component';
+import { TimeIntervalComponent } from './components/time-interval/time-interval.component';
+import { FormsModule } from '@angular/forms';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { SensorListComponent } from './components/sensor-list/sensor-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MeasuredValueListComponent,
     ChartComponent,
-    LastValueComponent
+    LastValueComponent,
+    TimeIntervalComponent,
+    SensorListComponent    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularDateTimePickerModule
   ],
   providers: [MeasuredValueService],
   bootstrap: [AppComponent]

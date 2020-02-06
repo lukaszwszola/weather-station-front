@@ -1,10 +1,15 @@
 <div class="container">
-  <h1 class="mt=3 mb=3">Weather station</h1>
-  <br>
-  <app-last-value></app-last-value>
-  <br>
-  <app-chart></app-chart>
-  <br>
-  <app-measured-value-list></app-measured-value-list>
+  <div class="footer">
+    <h1 class="title">Weather station</h1>
+    <div class="sensors">
+      <app-sensor-list class="lastValue"></app-sensor-list>
+      <app-last-value class="lastValue"></app-last-value>
+      <app-time-interval class="timeInterval"></app-time-interval>
+    </div>
+  </div>
+  <div class="contentTitle"> <h4> Chart of values: </h4></div>
+  <div class="content">    
+    <app-chart class="chart"></app-chart>
+    <app-measured-value-list class="valuesTable"></app-measured-value-list>
+  </div>
 </div>
-

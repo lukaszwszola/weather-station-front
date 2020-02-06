@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MeasuredValueService } from 'src/app/services/measured-value.service';
 import { Chart } from 'chart.js';
-import { MeasuredValue } from 'src/app/common/measured-value';
-import { map } from 'rxjs/operators';
+import { Sensors } from 'src/app/common/measured-value';
 
 @Component({
   selector: 'app-chart',
@@ -18,7 +17,8 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
 
     //console.log(this._measuredValueService.getMeasuredValuesForChart())
-    this._measuredValueService.getMeasuredValuesForChart()
+    let sensorId = Sensors.Light.toString(); // getSensorId
+    this._measuredValueService.getMeasuredValuesForChart(sensorId)
       .subscribe(res => {
         //console.log(res)
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MeasuredValueService } from 'src/app/services/measured-value.service';
+import { Sensors } from 'src/app/common/measured-value';
+import { Sensor } from 'src/app/common/sensor';
+import { SensorServicesService } from 'src/app/services/sensor-services.service';
 
 @Component({
   selector: 'app-last-value',
@@ -14,13 +17,19 @@ export class LastValueComponent implements OnInit {
   sensorName;
 
   ngOnInit() {
-
-    this._measuredValueService.getLastMeasuredValues()
+    this._measuredValueService.getLastMeasuredValues(Sensors.UVlight.toString())
     .subscribe(res => {
-      //console.log(res)
       this.lastValue = res.value;
-      //console.log(res.value)
-      this.sensorName = res.sensor.name;
+      this.sensorName = res.sensor.name;      
     })
+    
+   
+
+
+
+
+    
+
+
   }
 }

@@ -1,0 +1,15 @@
+.clocks{
+  display: flex;
+}
+
+.clocksContainer {
+    text-align: center;
+  align-items: center;
+}
+
+div label {
+    text-align: center;  
+}
+
+
+

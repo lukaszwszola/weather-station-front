@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="com-md-12">
+            <div class="form-group">
+                <div class="clocksContainer">
+                    <H2 style="text-align: center;">Choose interval of time:</H2>
+                    <div class="clocks">
+                        <div class="firstClock">
+                            <label for="dateFrom">From:</label>
+                            <angular2-date-picker class="form-control" id="dateFrom" [(ngModel)]="dateFrom"
+                                [settings]="settingsFrom"></angular2-date-picker>
+                        </div>
+                        <div class="secondClock">
+                            <label for="dateTo">To:</label>
+                            <angular2-date-picker class="form-control" id="dateTo" [(ngModel)]="dateTo"
+                                [settings]="settingsTo"></angular2-date-picker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

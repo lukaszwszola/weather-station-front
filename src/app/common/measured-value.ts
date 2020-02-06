@@ -1,6 +1,15 @@
 export class MeasuredValue {
-    measuredValueId: number;
-    value: number;
-    name: string;
+    sensorId: string;
+    value: string;
+    measuredValueId: string;
     measuredTime: Date;
+
+    
+}
+
+export enum Sensors {
+    UVlight = 1,
+    pressure,
+    temperature,
+    Light,
 }

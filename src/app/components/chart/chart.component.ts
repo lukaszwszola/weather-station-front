@@ -15,10 +15,7 @@ export class ChartComponent implements OnInit {
   constructor(private _measuredValueService: MeasuredValueService) { }
 
   ngOnInit() {
-
-    //console.log(this._measuredValueService.getMeasuredValuesForChart())
-    let sensorId = Sensors.Light.toString(); // getSensorId
-    this._measuredValueService.getMeasuredValuesForChart(sensorId)
+    this._measuredValueService.getMeasuredValuesForChart("1")
       .subscribe(res => {
         //console.log(res)
 
@@ -69,6 +66,7 @@ export class ChartComponent implements OnInit {
             }
           }
         })
-      })
+      });
+
   }
 }

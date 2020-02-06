@@ -1,0 +1,9 @@
+.sensorContent {
+    display: flex;   
+}
+
+.sensors {
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 200px;
+}

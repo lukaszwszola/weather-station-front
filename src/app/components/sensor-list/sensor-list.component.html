@@ -1,4 +1,6 @@
-<div class="sensorName">
+<div class="sensorContent">
     <h2>Name of sensor:</h2>
-    <select class= "sensorList" name="sensors" id="sensors"></select>
+    <div class="sensors">        
+        <select class="sensorList" name="sensors" id="sensors" #t (change)="callType(t.value)"></select>
+    </div>
 </div>

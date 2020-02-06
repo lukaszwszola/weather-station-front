@@ -1,10 +1,10 @@
-export class MeasuredValue {
-    sensorId: string;
-    value: string;
-    measuredValueId: string;
-    measuredTime: Date;
+import { Sensor } from './sensor';
 
-    
+export class MeasuredValue {
+    measuredValueId: string;
+    sensor: Sensor;
+    value: string;    
+    measuredTime: Date;    
 }
 
 export enum Sensors {

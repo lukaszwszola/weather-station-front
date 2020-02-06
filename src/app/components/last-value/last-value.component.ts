@@ -13,8 +13,8 @@ export class LastValueComponent implements OnInit {
   
   constructor(private _measuredValueService: MeasuredValueService) { }
 
-  lastValue;
-  sensorName;
+  public lastValue;
+  public sensorName;
 
   ngOnInit() {
     this._measuredValueService.getLastMeasuredValues(Sensors.UVlight.toString())
@@ -22,14 +22,5 @@ export class LastValueComponent implements OnInit {
       this.lastValue = res.value;
       this.sensorName = res.sensor.name;      
     })
-    
-   
-
-
-
-
-    
-
-
   }
 }

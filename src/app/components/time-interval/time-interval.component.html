@@ -8,14 +8,17 @@
                         <div class="firstClock">
                             <label for="dateFrom">From:</label>
                             <angular2-date-picker class="form-control" id="dateFrom" [(ngModel)]="dateFrom"
-                                [settings]="settingsFrom"></angular2-date-picker>
+                                [settings]="settingsFrom" #t (change)="callTypeFirst(t.value)"> </angular2-date-picker>
                         </div>
                         <div class="secondClock">
                             <label for="dateTo">To:</label>
                             <angular2-date-picker class="form-control" id="dateTo" [(ngModel)]="dateTo"
-                                [settings]="settingsTo"></angular2-date-picker>
+                                [settings]="settingsTo" #t (change)="callTypeSecond(t.value)"></angular2-date-picker>
                         </div>
                     </div>
+                </div>
+                <div class="buttonReload">
+                    <button type="button" class="buttonApply" (click)="applyInterval()">Apply interval</button>
                 </div>
             </div>
         </div>

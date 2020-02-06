@@ -11,5 +11,7 @@ div label {
     text-align: center;  
 }
 
-
-
+.buttonReload {
+  float: right;
+  padding-top: 15px;
+}

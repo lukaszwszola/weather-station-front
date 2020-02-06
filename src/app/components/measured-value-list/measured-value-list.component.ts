@@ -14,8 +14,8 @@ export class MeasuredValueListComponent implements OnInit {
   constructor(private measuredValueService: MeasuredValueService) { }
 
   ngOnInit() {
-    let sensorId = Sensors.temperature.toString();
-    this.measuredValuesList(sensorId);
+    let sensorList: HTMLSelectElement  = document.getElementById('sensors') as HTMLSelectElement;
+    this.measuredValuesList("1");
   }
 
   measuredValuesList(senorId: String) {

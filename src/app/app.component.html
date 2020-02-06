@@ -2,9 +2,11 @@
   <div class="footer">
     <h1 class="title">Weather station</h1>
     <div class="sensors">
-      <app-sensor-list class="lastValue"></app-sensor-list>
+      <div class="sensorWithValue">
+      <app-sensor-list class="sensorList"></app-sensor-list>
       <app-last-value class="lastValue"></app-last-value>
-      <app-time-interval class="timeInterval"></app-time-interval>
+    </div>
+      <app-time-interval class="timeInterval" style="padding-left: 250px;"></app-time-interval>
     </div>
   </div>
   <div class="contentTitle"> <h4> Chart of values: </h4></div>

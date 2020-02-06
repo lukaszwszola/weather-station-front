@@ -11,8 +11,8 @@
           </thead>
           <tbody>
                <tr *ngFor="let tempValues of measuredValues">
-                    <td>{{ tempValues.sensorId}}</td>
-                    <td>{{ tempValues.measuredValueId}}</td>
+                    <td>{{ tempValues.sensor.sensorId}}</td>
+                    <td>{{ tempValues.sensor.name}}</td>
                     <td>{{ tempValues.value }}</td>
                     <td>{{ tempValues.measuredTime | date:'short' }}</td>
                </tr>

@@ -1,7 +1,7 @@
 import { Sensor } from './sensor';
 
 export class MeasuredValue {
-    measuredValueId: string;
+    measuredValueId: number;
     sensor: Sensor;
     value: string;    
     measuredTime: Date;    

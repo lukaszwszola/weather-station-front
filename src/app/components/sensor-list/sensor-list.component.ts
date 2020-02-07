@@ -2,22 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { SensorServicesService } from 'src/app/services/sensor-services.service';
 import { Sensor } from 'src/app/common/sensor';
 import { MeasuredValueService } from 'src/app/services/measured-value.service';
-import { Chart } from 'chart.js';
-
+import { ChartDataService } from 'src/app/services/chart-data.service';
 @Component({
   selector: 'app-sensor-list',
   templateUrl: './sensor-list.component.html',
   styleUrls: ['./sensor-list.component.css']
 })
 export class SensorListComponent implements OnInit {
-
-  constructor(private sensorsServices: SensorServicesService, private measuredValueService: MeasuredValueService) { }
-
+  constructor(private sensorsServices: SensorServicesService, private measuredValueService: MeasuredValueService, private chartService: ChartDataService) { }
   sensors: Sensor[];
   ngOnInit() {
     this.getListOfSensors();
   }
-
   getListOfSensors() {
     this.sensorsServices.getSensors().subscribe(
       sensorList =>  {
@@ -26,7 +22,6 @@ export class SensorListComponent implements OnInit {
       }      
     )
   }
-
   fillSensorsList() {
     Promise.all(this.sensors).then((sensorsResult) => {
       var select = document.getElementById('sensors');
@@ -53,46 +48,13 @@ export class SensorListComponent implements OnInit {
             output.push(input[i][field]);
           return output;
         }
-
         let values = getFields(res, "value");
         let mTime = getFields(res, "measuredTime")
-
         let weatherDates = []
         mTime.forEach((res) => {
           weatherDates.push(new Date(res).toLocaleString());
         })
-
-
-        console.log(values)
-        console.log(mTime)
-        console.log(weatherDates)
-        var chart =  document.getElementById('canvas');
-        chart = new Chart('canvas', {
-          type: 'line',
-          data: {
-            labels: weatherDates,
-            datasets: [
-              {
-                data: values,
-                borderColor: '#3d5afe',
-                fill: false
-              },
-            ]
-          },
-          options: {
-            legend: {
-              display: false
-            },
-            scales: {
-              xAxes: [{
-                display: false
-              }],
-              yAxes: [{
-                display: true
-              }]
-            }
-          }
-        })
+        this.chartService.updateValues(weatherDates, values, res);       
       });
   }
 }

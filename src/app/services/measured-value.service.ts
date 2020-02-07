@@ -27,8 +27,8 @@ export class MeasuredValueService {
     .pipe(result => result);
   }
 
-  getInvtervalMeasuredValues(dateFrom:String, dateTo:String, sensorID: String) : Observable<any> { 
-    return this.httpClient.get("http://localhost:8080/value/intervalValues?dateFrom="+ dateFrom + "&dateTo=" + dateTo +"&sensorId=" + sensorID)
+  getInvtervalMeasuredValues(dateFrom:String, dateTo:String, sensorID: String) : Observable<MeasuredValue[]> { 
+    return this.httpClient.get<MeasuredValue[]>("http://localhost:8080/value/intervalValues?dateFrom="+ dateFrom + "&dateTo=" + dateTo +"&sensorId=" + sensorID)
     .pipe(result => result);
   }
 }

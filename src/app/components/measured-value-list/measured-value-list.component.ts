@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MeasuredValue, Sensors } from 'src/app/common/measured-value';
+import { MeasuredValue } from 'src/app/common/measured-value';
 import { MeasuredValueService } from 'src/app/services/measured-value.service';
+import { Subscription } from 'rxjs';
+import { ChartDataService } from 'src/app/services/chart-data.service';
 
 @Component({
   selector: 'app-measured-value-list',
@@ -9,24 +11,27 @@ import { MeasuredValueService } from 'src/app/services/measured-value.service';
 })
 export class MeasuredValueListComponent implements OnInit {
 
+  _event: Subscription = null;  
   measuredValues: MeasuredValue[];
+  i: number = 0;
 
-  constructor(private measuredValueService: MeasuredValueService) { }
-
-  ngOnInit() {
-    let sensorList: HTMLSelectElement  = document.getElementById('sensors') as HTMLSelectElement;
+  constructor(private measuredValueService: MeasuredValueService, private chartService: ChartDataService) { 
+    this._event = chartService.data.subscribe((val) => {      
+      this.measuredValues = val.measuredValues;
+    })
+  }
+  ngOnInit() {  
     this.measuredValuesList("1");
   }
 
-  measuredValuesList(senorId: String) {
-    
+  measuredValuesList(senorId: String) {    
     this.measuredValueService.getMeasuredValuesList(senorId).subscribe(
       data => {
         this.measuredValues = data;
-        //console.log(data);
       }
     )
-
   }
-
+  ngOnDestroy(){
+    this._event.unsubscribe();
+  }
 }
